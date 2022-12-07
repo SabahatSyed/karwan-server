@@ -18,7 +18,6 @@ async function addBook(req, res) {
       });
     await addBook.save();*/}
       const res=Book.create(req.body)
-
       res.status(201).json(res);
       console.log(addBook);
     }

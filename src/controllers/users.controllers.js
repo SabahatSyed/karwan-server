@@ -2,7 +2,7 @@ const User = require("../models/user.model");
 
 //////////////////////////////////////////////////////////////////////////////
 async function addUser(req, res) {
-  const { userName, email, contact, address, profilePic, password } = req.body;
+  const { userName, email, contact, address, profilePic, password,cnic } = req.body;
   try {
     const preUser = await User.findOne({ email: email });
     console.log(preUser);

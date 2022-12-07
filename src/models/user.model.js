@@ -7,10 +7,12 @@ const UserSchema = new mongoose.Schema({
   address: { type: String, required: true },
   profilePic: { type: String, required: false },
   password: { type: String, required: true },
+  cnic:{type:String},
   family:[{
     name:{type:String},
     contact:{type:String},
     relation:{type:String},
+    cnic:{type:String}
   }],
   RegisterationDate:{type:String},
   location:{

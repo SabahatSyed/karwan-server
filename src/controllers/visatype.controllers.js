@@ -19,7 +19,7 @@ const Visa = require("../models/visatype.model");
 } */
 async function addVisa(req, res) {
   try {
-    const addVisa = Visa.create(req.body);
+    const addVisa =await Visa.create(req.body);
     res.status(201).json(addVisa);
     console.log(addVisa);
   } catch (error) {
