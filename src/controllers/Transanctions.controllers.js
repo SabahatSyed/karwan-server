@@ -6,18 +6,20 @@ async function addBook(req, res) {
   ,TransanctionStatus,currency } = req.body;
   try {
     const preBook = await Book.findOne({
-      Transaction_id: Transaction_id,
+      Transaction_id: req.body.Transaction_id,
     });
     console.log(preBook);
     if (preBook) {
-      res.status(404).send("This Transaction already exists");
+      res.status(500).send("This Transaction already exists");
     } else {
-      const addBook = new Book({
+     {/*} const addBook = new Book({
         Transaction_id,user_id,order_type,order_id,Amount
   ,TransanctionStatus,currency
       });
-      await addBook.save();
-      res.status(201).json(addBook);
+      await addBook.save();*/
+      const res=Book.create(req.body)
+
+      res.status(201).json(res);
       console.log(addBook);
     }
   } catch (error) {

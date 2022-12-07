@@ -20,6 +20,7 @@ const TransportBookingRouter = require("./src/routes/transportbooking.routes");
 const HolyPlacesRouter = require("./src/routes/holyplaces.routes");
 const TransactionRouter = require("./src/routes/Transanctions.routes");
 const pdfRouter = require("./src/routes/pdfReports.routes");
+const visatypeRouter = require("./src/routes/visatype.routes");
 
 require("./db/connect");
 const app = express();
@@ -47,5 +48,7 @@ app.use(authRouter)
 app.use(HolyPlacesRouter)
 app.use(TransactionRouter)
 app.use(pdfRouter)
+app.use(visatypeRouter)
+
 app.get("/", (req, res) => res.send("Hello Karwan-e-Hasnaat Server!"));
 app.listen(port, () => console.log(`Server is listening on port ${port}`));

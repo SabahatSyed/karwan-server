@@ -1,4 +1,4 @@
-const Visa = require("../models/visa.model");
+const Visa = require("../models/visatype.model");
 
 //////////////////////////////////////////////////////////////////////////////
 /* async function addVisa(req, res) {
@@ -30,7 +30,7 @@ async function addVisa(req, res) {
 //////////////////////////////////////////////////////////////////////////////
 async function getVisa(req, res) {
   try {
-    const visaData = await Visa.find().populate("user_id visa");
+    const visaData = await Visa.find();
     res.status(200).json(visaData);
     // console.log(visaData);
   } catch (error) {
@@ -42,7 +42,7 @@ async function getVisa(req, res) {
 async function getSingleVisa(req, res) {
   const visaId = req.params.id;
   try {
-    const visaData = await Visa.findById(visaId).populate("user_id visa");
+    const visaData = await Visa.findById(visaId)
     res.status(200).json(visaData);
     console.log(visaData);
   } catch (error) {

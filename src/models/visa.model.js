@@ -2,23 +2,60 @@ const mongoose = require("mongoose");
 const Id = mongoose.Schema.Types.ObjectId;
 
 const VisaSchema = new mongoose.Schema({
-  fullName: { type: String /* , required: true */ },
-  motherName: { type: String /* , required: true */ },
-  email: { type: String /* , required: true */ },
-  gender: { type: String /* , required: true */ },
-  contact: { type: Number /* , required: true */ },
-  address: { type: String /* , required: true */ },
   visaRequestDate: { type: Date /* , required: true */ },
-  dateOfBirth: { type: Date /* , required: true */ },
-  placeOfBirth: { type: String /* , required: true */ },
-  umrahDuration: { type: String /* , required: true */ },
-  visaType: { type: String /* , required: true */ },
-  passportSizePhoto: { type: String /* , required: true */ },
-  idCardFront: { type: String /* , required: true */ },
-  idCardBack: { type: String /* , required: true */ },
-  passport: { type: String /* , required: true */ },
   user_id: { type: Id, ref: "User", required: true },
-  visaStatus:{type:String}
+  user:{
+    information:{
+      FullName:{type:String},
+      Father_Husband:{type:String},
+      Mother:{type:String},
+      CNIC:{type:String},
+      PassportNo:{type:String},
+      Gender:{type:String},
+      Age:{type:Number},
+      MartialStatus:{type:String},
+      Contact:{type:String},
+      Email:{type:String},
+      DOB:{type:String},
+      Occupation:{type:String},
+      city:{type:String}
+    },
+    documents:{
+      passport:{type:String},
+      passport_size_pics:{type:String},
+      proof_of_vaccination:{type:String},
+      marriage_certificate:{type:String},
+      birth_certificate:{type:String} 
+    }
+  },
+  Family:[{
+      information:{
+        FullName:{type:String},
+        Father_Husband:{type:String},
+        Mother:{type:String},
+        CNIC:{type:String},
+        PassportNo:{type:String},
+        Gender:{type:String},
+        Age:{type:Number},
+        MartialStatus:{type:String},
+        Contact:{type:String},
+        Email:{type:String},
+        DOB:{type:String},
+        Occupation:{type:String},
+        city:{type:String}
+      },
+      documents:{
+        passport:{type:String},
+        passport_size_pics:{type:String},
+        proof_of_vaccination:{type:String},
+        marriage_certificate:{type:String},
+        birth_certificate:{type:String} 
+      }
+  }],
+  Status:{type:String},
+  application_type:{type:String},
+  visatype:{type: Id, ref: "VisaType", required: true },
+  payment:{type:Number}
 });
 
 const Visa = new mongoose.model("Visa", VisaSchema);
