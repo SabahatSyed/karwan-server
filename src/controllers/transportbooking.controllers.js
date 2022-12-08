@@ -9,11 +9,9 @@ async function addProductCart(req, res) {
     if (preProductCart) {
       res.status(404).send("This Booking already exists");
     } else {
-      const addProductCart = new ProductCart({
-        user_id,
-        Transport,bookedVehicle,Total 
-      });
-      await addProductCart.save();
+      
+      const addProductCart=await ProductCart.create(req.body)
+
       res.status(201).json(addProductCart);
       console.log(addProductCart);
     }

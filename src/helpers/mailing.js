@@ -21,7 +21,7 @@ module.exports.resetPasswordMail = (email, token) => {
     from: "cacfyp@gmail.com",
     to: email,
     subject: "Reset Password",
-    html: `<p>You requested for reset password, kindly use this <a href="${process.env.REACT_APP_URL}/ResetPassword/${token}">link</a> to reset your password</p>`,
+    html: `<p>You requested for reset password, kindly use this <a href="http://localhost:3000/ResetPassword/${token}">link</a> to reset your password</p>`,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {

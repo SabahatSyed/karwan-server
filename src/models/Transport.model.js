@@ -5,8 +5,8 @@ const Id = mongoose.Schema.Types.ObjectId;
 const TransportSchema = new mongoose.Schema({
   Name: { type: String },
   images: { type: String },
-  Facilities: { type: String},
-  Vehicle:[{
+  Facilities: [{ type: String}],
+   Vehicle:[{
     Type:{type: String },
     Price:{type: Number},
     id:{type:Number,default:0},

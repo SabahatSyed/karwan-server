@@ -2,7 +2,6 @@ const ProductCart = require("../models/hotelbookings.model");
 
 //////////////////////////////////////////////////////////////////////////////
 async function addProductCart(req, res) {
-
   const { user_id, hotel,bookedRoom,Total } = req.body;
   try {
     console.log("sahs",req.body)
@@ -12,12 +11,13 @@ async function addProductCart(req, res) {
       //const addProductCart = new ProductCart({
       //  bookedRoom,Total 
      // });
-      await ProductCart.create({user_id,hotel,bookedRoom,Total})
+     
+     const addProductCart=await ProductCart.create(req.body)
     //  await addProductCart.save();
       res.status(201).json(addProductCart);
       console.log(addProductCart);
   } catch (error) {
-    res.status(404).send(error.message);
+    res.status(404).send(error.message)
   }
 }
 

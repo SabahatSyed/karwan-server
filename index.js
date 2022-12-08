@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 
 const userRouter = require("./src/routes/users.routes");
+const adminRouter = require("./src/routes/admin.routes");
+
 const videoRouter = require("./src/routes/videos.routes");
 const bookRequestRouter = require("./src/routes/bookRequests.routes");
 const supplicationRouter = require("./src/routes/supplications.routes");
@@ -21,6 +23,7 @@ const HolyPlacesRouter = require("./src/routes/holyplaces.routes");
 const TransactionRouter = require("./src/routes/Transanctions.routes");
 const pdfRouter = require("./src/routes/pdfReports.routes");
 const visatypeRouter = require("./src/routes/visatype.routes");
+const GuidesRouter = require("./src/routes/Guides.routes");
 
 require("./db/connect");
 const app = express();
@@ -49,6 +52,7 @@ app.use(HolyPlacesRouter)
 app.use(TransactionRouter)
 app.use(pdfRouter)
 app.use(visatypeRouter)
-
+app.use(adminRouter)
+app.use(GuidesRouter)
 app.get("/", (req, res) => res.send("Hello Karwan-e-Hasnaat Server!"));
 app.listen(port, () => console.log(`Server is listening on port ${port}`));
