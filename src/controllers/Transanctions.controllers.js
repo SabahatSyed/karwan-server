@@ -17,8 +17,9 @@ async function addBook(req, res) {
   ,TransanctionStatus,currency
       });
     await addBook.save();*/}
-      const res=Book.create(req.body)
-      res.status(201).json(res);
+      const ress=Book.create(req.body)
+
+      res.status(201).json(ress);
       console.log(addBook);
     }
   } catch (error) {

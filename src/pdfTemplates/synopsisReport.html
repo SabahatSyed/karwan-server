@@ -366,6 +366,49 @@
              
      
              {{/each}}
+
+
+             <h4 style="display: inline-block; border-bottom:2px solid black;">
+                Transactions:
+            </h4>
+         
+                {{#each transactions}}
+                
+                 <table style="margin-top: 2rem;" width="100%" border="2" cellspacing="0" cellpadding="0">
+                     <tr >
+                                 
+                                 
+                                  <td style="align-items:center;padding: 5px;">                            
+                                     Transaction Id: 
+                                  </td>
+                                  <td style="text-align:center;padding: 5px;">
+                                     <p>{{this.Transaction_id}}</p>
+                                  </td>
+                                  <td style="align-items:center;padding: 5px;">                            
+                                    Currency: 
+                                 </td>
+                                 <td style="text-align:center;padding: 5px;">
+                                     <p>{{this.currency}}</p>
+                                 </td>
+                                  <td style="align-items:center;padding: 5px;">                            
+                                     Amount: 
+                                  </td>
+                                  <td style="text-align:center;padding: 5px;">
+                                      <p>{{this.Amount}}</p>
+                                  </td>
+                                  <td style="align-items:center;padding: 5px;">                            
+                                    Transaction Status: 
+                                 </td>
+                                 <td style="text-align:center;padding: 5px;">
+                                     <p>{{this.TransanctionStatus}}</p>
+                                 </td>
+                              
+                           
+                 </table>
+                
+                 
+         
+                 {{/each}}
         </div>
     </body>
 

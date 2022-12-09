@@ -37,7 +37,8 @@ async function sendpdf(req, res, next) {
         hotels:req.body.hotels,
         transport:req.body.transport,
         advances:req.body.advances,
-        cheques:req.body.cheques
+        cheques:req.body.cheques,
+        transactions:req.body.transactions
       },
       path: path.join(
         __dirname,

@@ -2,7 +2,7 @@ const User = require("../models/admin.model");
 
 //////////////////////////////////////////////////////////////////////////////
 async function addUser(req, res) {
-  const { userName, email, contact, address, profilePic, password,cnic,Designation } = req.body;
+  const { userName, email, contact, address, profilePic, password,cnic,Designation,Restrict } = req.body;
   try {
     const preUser = await User.findOne({ email: email });
     console.log(preUser);
@@ -15,7 +15,7 @@ async function addUser(req, res) {
         password,
         contact,
         address,
-        profilePic,cnic,Designation
+        profilePic,cnic,Designation,Restrict
       });
       await addUser.save();
       res.status(201).json(addUser);

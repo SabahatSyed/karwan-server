@@ -2,23 +2,24 @@ const ProductCart = require("../models/hotelbookings.model");
 
 //////////////////////////////////////////////////////////////////////////////
 async function addProductCart(req, res) {
+
   const { user_id, hotel,bookedRoom,Total } = req.body;
   try {
     console.log("sahs",req.body)
-   // const preProductCart = await ProductCart.findOne({ _id: req.body._id });
-    //if (preProductCart) {
-    //  res.status(404).send("This Booking already exists");
-      //const addProductCart = new ProductCart({
-      //  bookedRoom,Total 
-     // });
-     
-     const addProductCart=await ProductCart.create(req.body)
+ 
+      ProductCart.create(req.body).then((ress)=>{
+      console.log("res",ress)
+      res.status(201).json(ress);
+      
+     })
+     .catch((err)=>{
+      console.log("errror")
+     })
     //  await addProductCart.save();
-      res.status(201).json(addProductCart);
       console.log(addProductCart);
   } catch (error) {
-    res.status(404).send(error.message)
-  }
+    res.status(404).send(error.message);
+  }
 }
 
 //////////////////////////////////////////////////////////////////////////////
