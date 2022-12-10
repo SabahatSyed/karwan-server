@@ -30,7 +30,7 @@ async function addVisa(req, res) {
 //////////////////////////////////////////////////////////////////////////////
 async function getVisa(req, res) {
   try {
-    const visaData = await Visa.find().populate("user_id visa");
+    const visaData = await Visa.find().populate("user_id");
     res.status(200).json(visaData);
     // console.log(visaData);
   } catch (error) {

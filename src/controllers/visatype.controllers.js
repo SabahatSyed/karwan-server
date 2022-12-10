@@ -39,6 +39,18 @@ async function getVisa(req, res) {
 }
 
 //////////////////////////////////////////////////////////////////////////////
+async function getSingleVisaRef(req, res) {
+  const visaId = req.body.visaid;
+  try {
+    const visaData = await Visa.find({Type:visaId})
+    res.status(200).json(visaData);
+    console.log(visaData);
+  } catch (error) {
+    res.status(404).send(error);
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////
 async function getSingleVisa(req, res) {
   const visaId = req.params.id;
   try {
@@ -73,4 +85,4 @@ async function deleteVisa(req, res) {
   }
 }
 
-module.exports = { getVisa, getSingleVisa, addVisa, updateVisa, deleteVisa };
+module.exports = { getVisa, getSingleVisa,getSingleVisaRef, addVisa, updateVisa, deleteVisa };
