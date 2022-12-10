@@ -29,7 +29,10 @@ const UserSchema = new mongoose.Schema({
     id:{type:Number},
     Description:{type:String},
     Amount:{type:Number}
-  }]
+  }],
+  visaStatus:{
+    type:String
+  }
 });
 
 const User = new mongoose.model("User", UserSchema);

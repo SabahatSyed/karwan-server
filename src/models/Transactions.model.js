@@ -8,7 +8,8 @@ const TransactionSchema = new mongoose.Schema({
   order_id:{type: Id},
   Amount:{type:Number},
   TransanctionStatus:{type:String},
-  currency:{type:String}
+  currency:{type:String},
+  Date:{type:String}
 });
 
 const Book = new mongoose.model("Transaction", TransactionSchema);

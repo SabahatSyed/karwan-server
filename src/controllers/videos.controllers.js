@@ -2,7 +2,7 @@ const Video = require("../models/video.model");
 
 //////////////////////////////////////////////////////////////////////////////
 async function addVideo(req, res) {
-  const { videoLink } = req.body;
+  const { videoLink,title,thumbnail } = req.body;
   try {
     const preVideo = await Video.findOne({ videoLink: videoLink });
     console.log(preVideo);
@@ -10,7 +10,7 @@ async function addVideo(req, res) {
       res.status(404).send("This video already exists");
     } else {
       const addVideo = new Video({
-        videoLink,
+        videoLink,title,thumbnail 
       });
       await addVideo.save();
       res.status(201).json(addVideo);
