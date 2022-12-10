@@ -21,7 +21,6 @@ const UserSchema = new mongoose.Schema({
   },
   locationTime:{
     Time:{type:String},
-    Date:{type:String}
   },
   AdditionalCharges:[{
     Type:{type:String},
