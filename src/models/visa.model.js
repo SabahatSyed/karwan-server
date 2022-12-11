@@ -30,7 +30,8 @@ const VisaSchema = new mongoose.Schema({
   Status:{type:String},
   application_type:{type:String},
   visatype:{type: Id, ref: "VisaType", required: true },
-  payment:{type:Number}
+  payment:{type:Number},
+  Description:{type:String}
 });
 
 const Visa = new mongoose.model("Visa", VisaSchema);
