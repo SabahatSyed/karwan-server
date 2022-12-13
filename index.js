@@ -25,6 +25,8 @@ const pdfRouter = require("./src/routes/pdfReports.routes");
 const visatypeRouter = require("./src/routes/visatype.routes");
 const GuidesRouter = require("./src/routes/Guides.routes");
 const visatypesRouter = require("./src/routes/visatypes.routes");
+const CategoryRouter = require("./src/routes/Category.routes");
+const DesignationRouter = require("./src/routes/Designations.routes");
 
 require("./db/connect");
 const app = express();
@@ -56,6 +58,7 @@ app.use(visatypeRouter)
 app.use(adminRouter)
 app.use(GuidesRouter)
 app.use(visatypesRouter)
-
+app.use(DesignationRouter)
+app.use(CategoryRouter)
 app.get("/", (req, res) => res.send("Hello Karwan-e-Hasnaat Server!"));
 app.listen(port, () => console.log(`Server is listening on port ${port}`));

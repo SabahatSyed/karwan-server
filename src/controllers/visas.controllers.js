@@ -18,8 +18,9 @@ const Visa = require("../models/visa.model");
   }
 } */
 async function addVisa(req, res) {
+  console.log(req.body);
   try {
-    const addVisa =await Visa.create(req.body);
+    const addVisa = await Visa.create(req.body);
     res.status(201).json(addVisa);
     console.log(addVisa);
   } catch (error) {
@@ -40,9 +41,9 @@ async function getVisa(req, res) {
 
 //////////////////////////////////////////////////////////////////////////////
 async function getSingleVisa(req, res) {
-  const visaId = req.params.id;
+  // const visaId = req.params.id;
   try {
-    const visaData = await Visa.findById(visaId).populate("user_id visa");
+    const visaData = await Visa.findOne({ user_id: req.body.userId });
     res.status(200).json(visaData);
     console.log(visaData);
   } catch (error) {
@@ -73,4 +74,10 @@ async function deleteVisa(req, res) {
   }
 }
 
-module.exports = { getVisa, getSingleVisa, addVisa, updateVisa, deleteVisa };
+module.exports = {
+  getVisa,
+  getSingleVisa,
+  addVisa,
+  updateVisa,
+  deleteVisa,
+};

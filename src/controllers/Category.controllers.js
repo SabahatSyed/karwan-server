@@ -1,4 +1,4 @@
-const Visa = require("../models/visatypes.model");
+const Visa = require("../models/Category.model");
 
 //////////////////////////////////////////////////////////////////////////////
 /* async function addVisa(req, res) {
@@ -47,7 +47,7 @@ async function getVisaArray(req, res) {
     const visaData = await Visa.find();
     var a = [];
     visaData?.map((item) => {
-      a.push(item.Type);
+      a.push(item.Category);
     });
     console.log(a);
     res.status(200).json(a);

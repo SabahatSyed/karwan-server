@@ -1,4 +1,4 @@
-const Visa = require("../models/visatypes.model");
+const Visa = require("../models/Designations.model");
 
 //////////////////////////////////////////////////////////////////////////////
 /* async function addVisa(req, res) {
@@ -47,7 +47,7 @@ async function getVisaArray(req, res) {
     const visaData = await Visa.find();
     var a = [];
     visaData?.map((item) => {
-      a.push(item.Type);
+      a.push(item.Designation);
     });
     console.log(a);
     res.status(200).json(a);
@@ -85,6 +85,7 @@ async function deleteVisa(req, res) {
   const visaId = req.params.id;
   try {
     await Visa.findByIdAndDelete(visaId);
+    console.log("visaID",visaId)
     res.status(200).json({ msg: "Visa Deleted" });
   } catch (err) {
     console.log(err);

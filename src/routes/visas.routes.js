@@ -10,7 +10,7 @@ const {
 
 const router = express.Router();
 router.get("/get-visa", getVisa);
-router.get("/get-visa/:id", getSingleVisa);
+router.post("/get-visaSingle/", getSingleVisa);
 router.post("/add-visa", addVisa);
 router.patch("/update-visa/:id", updateVisa);
 router.delete("/delete-visa/:id", deleteVisa);

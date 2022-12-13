@@ -16,7 +16,6 @@ async function addUser(req, res) {
         contact,
         address,
         profilePic,
-        cnic
       });
       await addUser.save();
       res.status(201).json(addUser);

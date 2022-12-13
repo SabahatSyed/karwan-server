@@ -3,7 +3,7 @@ const Product = require("../models/product.model");
 
 //////////////////////////////////////////////////////////////////////////////
 async function addProduct(req, res) {
-  const { title, price, description, rating, productImage } = req.body;
+  const { title, price, description, rating, productImage,category } = req.body;
   try {
     const preProduct = await Product.findOne({ _id: req.body._id });
     console.log(preProduct);
